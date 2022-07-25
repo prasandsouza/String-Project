@@ -1,11 +1,24 @@
 module.exports = function (string) {
      let splittedValue = string.split(".");
-     let ipArray = splittedValue.map((value) => {
-          return parseInt(value);
+     let ip = splittedValue.map((valueof) => {
+          if (isNaN(valueof)) {
+               return null;
+          } else {
+               return valueof;
+          }
      });
-     if (ipArray.length > 4) {
+
+     if (ip.includes(null)) {
           return [];
      } else {
-          return ipArray;
+          ip;
+     }
+     if (ip.length > 4) {
+          return [];
+     } else {
+          let ipfinal = splittedValue.map((value) => {
+               return parseInt(value);
+          });
+          return ipfinal;
      }
 };
